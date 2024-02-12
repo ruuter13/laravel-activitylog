@@ -21,6 +21,7 @@ class ActivitylogServiceProvider extends PackageServiceProvider
             'create_activity_log_table',
             'add_event_column_to_activity_log_table',
             'add_batch_uuid_column_to_activity_log_table',
+            'add_tags_column_to_activity_log_table',
         ])
         ->hasCommand(CleanActivitylogCommand::class);
     }
