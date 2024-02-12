@@ -21,6 +21,7 @@ use Spatie\Activitylog\Contracts\Activity as ActivityContract;
  * @property int|null $causer_id
  * @property string|null $event
  * @property string|null $batch_uuid
+ * @property string|null $tags
  * @property \Illuminate\Support\Collection|null $properties
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at

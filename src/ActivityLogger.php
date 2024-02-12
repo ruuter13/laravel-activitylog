@@ -114,6 +114,15 @@ class ActivityLogger
         return $this;
     }
 
+    public function withTags(array $tags = null): static
+    {
+        $this->getActivity()->tags = $tags
+            ? collect($tags)->flatten()->implode(',')
+            : null;
+
+        return $this;
+    }
+
     public function createdAt(DateTimeInterface $dateTime): static
     {
         $this->getActivity()->created_at = Carbon::instance($dateTime);

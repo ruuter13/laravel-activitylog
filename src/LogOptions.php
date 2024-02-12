@@ -20,6 +20,8 @@ class LogOptions
 
     public array $logExceptAttributes = [];
 
+    public array $tags = [];
+
     public array $dontLogIfAttributesChangedOnly = [];
 
     public array $attributeRawValues = [];
@@ -98,6 +100,16 @@ class LogOptions
     public function logExcept(array $attributes): self
     {
         $this->logExceptAttributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Add tags to the log.
+     */
+    public function tags(array $attributes): self
+    {
+        $this->tags = $attributes;
 
         return $this;
     }

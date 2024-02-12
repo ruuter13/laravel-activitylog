@@ -79,7 +79,8 @@ trait LogsActivity
                     ->useLog($logName)
                     ->event($eventName)
                     ->performedOn($model)
-                    ->withProperties($event->changes);
+                    ->withProperties($event->changes)
+                    ->withTags($model->getTags());
 
                 if (method_exists($model, 'tapActivity')) {
                     $logger->tap([$model, 'tapActivity'], $eventName);
@@ -138,6 +139,15 @@ trait LogsActivity
         }
 
         return config('activitylog.default_log_name');
+    }
+
+    public function getTags(): ?array
+    {
+        if (! empty($this->activitylogOptions->tags)) {
+            return $this->activitylogOptions->tags;
+        }
+
+        return null;
     }
 
     /**
